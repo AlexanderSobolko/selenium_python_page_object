@@ -8,6 +8,9 @@ def test_guest_can_add_product_to_basket(browser):
     page = ProductPage(browser, link)
     page.open()
     page.click_add_to_basket()
+
     solv = BasePage(browser, link)
     solv.solve_quiz_and_get_code()
     time.sleep(5)
+
+    page.compare_product_name_in_message()
