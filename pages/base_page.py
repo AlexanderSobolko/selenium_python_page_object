@@ -35,6 +35,10 @@ class BasePage():
         login_link.click()
         # return LoginPage(browser=self.browser, url=self.browser.current_url)  # переходим на страницу логи
 
+    def go_to_basket_page(self):
+        basket_button = self.browser.find_element(*BasePageLocators.VIEW_BASKET_BUTTON)
+        basket_button.click()
+
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 

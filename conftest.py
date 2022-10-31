@@ -9,6 +9,13 @@ def pytest_addoption(parser):
                      help="Choose browser: chrome or firefox")
     parser.addoption('--language', action='store', default="en",
                      help="Choose language")
+    parser.addoption('--text_locale', action='store', default="en",
+                     help="Choose locale")
+
+
+@pytest.fixture(scope="function")
+def text_locale(request):
+    return request.config.getoption("text_locale")
 
 
 @pytest.fixture(scope="function")
